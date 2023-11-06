@@ -26,6 +26,8 @@ function getPetData(form) {
     if (pets.length > 1) {
         console.log(pets[0].isSameOwnerAs(pets[1]))
     }
+    printPetData(pet);
+    document.getElementById("petForm").reset();
     
 }
 
@@ -34,6 +36,15 @@ document.getElementById("petForm").addEventListener("submit", (event) => {
     getPetData(event.target)
     
 })
+
+function printPetData(pet) {
+    const ul = document.querySelector("ul");
+    const li = document.createElement("li");
+    li.innerText = `${pet.petName} ${pet.ownerName} ${pet.species} ${pet.breed}`;
+    ul.appendChild(li)
+
+}
+
 
 
 
